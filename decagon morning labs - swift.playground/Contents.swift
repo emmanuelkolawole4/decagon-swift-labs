@@ -50,7 +50,7 @@ func findOdd(_ integers: Array<Int>) -> Int {
 }
 print(findOdd([4,10,4,10,6,10,6,10,6,10,6]))
 
-
+//day 4
 func countDuplicates(_ s:String) -> Dictionary<String, Int>.Keys {
     var dict = [String : Int]()
     Array(s).map{dict[$0.lowercased(), default: 0] += 1}
@@ -73,6 +73,7 @@ let sayHello = "Hello Swift 4 2017";
 let result = sayHello.split(separator: " ")
 print(result)
 
+//day 5
 func accumm(_ s: String) -> String {
     var finalString = ""
     var count = 1
@@ -92,6 +93,7 @@ print(accumm("Zpgl"))
 let digitWords = ["one", "two", "three", "four", "five"]
 let wordToValue = Dictionary(uniqueKeysWithValues: zip(1...4, digitWords ))
 
+//day 6
 func dnaComplement(_ dna: String) -> String {
     if dna == "" {
         return ""
@@ -122,5 +124,27 @@ print(dnaComplement("ATTGC"))
 //    return String(arraydna)
 //}
 //print(dnaComplement("ATTGC"))
+
+//day 7
+func orderWeight(_ str: String) -> String {
+    let arrayFromStr = str.components(separatedBy: " ")
+    var store: [Int] = []
+    for stringNumbers in arrayFromStr {
+        var sum = 0
+        for characters in stringNumbers {
+            sum += Int(String(characters))!
+        }
+        store.append(sum)
+    }
+    let combined = zip(store, arrayFromStr).sorted {$0 < $1}
+    let sorted = combined.map {$0.1}
+    return sorted.joined(separator: " ")
+}
+
+print(orderWeight("56 65 74 100 99 68 86 180 90"))
+
+
+
+
 
 
